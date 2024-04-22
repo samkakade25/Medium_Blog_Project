@@ -23,7 +23,9 @@ export const useBlog = ({ id }: { id: string }) => {
         },
       })
       .then((response) => {
+        console.log(response.data);
         setBlog(response.data.blog);
+
         setLoading(false);
       });
   }, [id]);
@@ -34,7 +36,7 @@ export const useBlog = ({ id }: { id: string }) => {
   };
 };
 export const useBlogs = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [Blogs, setBlogs] = useState<Blogss[]>([]);
 
   useEffect(() => {
@@ -45,7 +47,8 @@ export const useBlogs = () => {
         },
       })
       .then((response) => {
-        setBlogs(response.data.blogs);
+        console.log(response.data);
+        setBlogs(response.data.blog);
         setLoading(false);
       });
   }, []);
